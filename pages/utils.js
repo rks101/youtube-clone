@@ -1,3 +1,5 @@
+import AWS from 'aws-sdk'
+
 export default function Utils() {
     return (
       <div className='mt-10 ml-20'>
