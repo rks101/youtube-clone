@@ -13,10 +13,12 @@ export default function LoadMore({videos, setVideos, setReachedEnd, author}) {
             }
     
             const res = await fetch(url)
+            // data contains new vedios from LoadMore button
             const data = await res.json()
             if (data.length < amount) {
                 setReachedEnd(true)
             }
+            // set vedios to existing list of videos and append data just fetched
             setVideos([...videos, ...data])
         }}
       >
