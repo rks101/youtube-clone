@@ -5,6 +5,7 @@ const nextConfig = {
     domains: [
       'localhost',
       'bootcamp-rks.s3.ap-south-1.amazonaws.com',
+      'bootcamp-rks.s3.amazonaws.com'
     ],
   },
 }
