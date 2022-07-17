@@ -1,14 +1,14 @@
+import { useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
-import { getVideos } from 'lib/data'
 import prisma from 'lib/prisma'
+import { amount } from 'lib/config'
+import { getVideos } from 'lib/data'
 import Videos from 'components/Videos'
 import Heading from 'components/Heading'
 import LoadMore from 'components/LoadMore'
-import { useState } from 'react'
-import { amount } from 'lib/config'
 
 export default function Home({initialVideos}) {
   const {data: session, status} = useSession()

@@ -28,6 +28,7 @@ export default function Heading(){
             <div className='grow ml-10 -mt-1'></div>
 
             {session && (
+                
                 <Link href={`/channel/${session.user.username}`}>
                 <a className='flex'>
                     <img
