@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 
@@ -11,6 +12,23 @@ import Heading from 'components/Heading'
 
 export default function SingleVideo({ video, videos }) {
   if (!video) return <p className='text-center p-5'>Video does not exist 😞</p>
+
+  // in dev mode it is being called twice, 
+  // check with reactStrictMode=false for test
+	useEffect(() => {
+	  const incrementViews = async () => {
+      await fetch('/api/view', {
+        body: JSON.stringify({
+          video: video.id,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+    }
+    incrementViews()
+  }, [])
 
   return (
     <>
